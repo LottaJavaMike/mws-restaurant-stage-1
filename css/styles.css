@@ -112,6 +112,9 @@ nav h1 a {
   padding: 10px;
   background-color: #3397DB;
   align-items: center;
+  /*add flex to filter option*/
+  display: flex;
+  flex-direction: column;
 }
 .filter-options h2 {
   color: white;
@@ -153,7 +156,9 @@ nav h1 a {
   padding: 0 30px 25px;
   text-align: left;
   /*set to 70% for smaller viewports*/
-  width: 70%;
+  width: 100%;
+  max-width: 560px;
+  min-width: 300px;
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
@@ -249,6 +254,9 @@ nav h1 a {
   border-top: 1px solid #fff;
   padding: 140px 40px 30px;
   width: 50%;
+  /*add flex*/
+  display: flex;
+  flex-direction: column;
 }
 #reviews-container {
   padding: 30px 40px 80px;

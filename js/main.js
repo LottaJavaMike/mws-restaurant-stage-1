@@ -7,9 +7,14 @@ var markers = []
 // Registering the serviceworker
 if('serviceworker' in navigator){
   navigator.serviceworker
-  .register('/serviceworker.js')
-  .catch(function(err){
-    console.error(err);
+  .register('js/serviceworker.js', {
+    scope: './'
+  })
+  .then(function() {
+    console.log('registered serviceworker');
+  })
+  .catch(function() {
+    console.log('failed to register serviceworker');
   });
 }
 /**

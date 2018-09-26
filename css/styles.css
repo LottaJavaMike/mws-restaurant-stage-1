@@ -117,7 +117,7 @@ nav h1 a {
   /*add padding*/
   padding: 15px 0;
   background-color: #3397DB;
-  /*align-items: center;*/
+  align-items: center;
   /*add flex to filter option*/
   /*display: flex;*/
   /*flex-direction: column;*/

@@ -153,7 +153,7 @@ nav h1 a {
   font-family: Arial,sans-serif;
   margin: 15px;
   min-height: 380px;
-  padding: 0 30px 25px;
+  padding: 0 2% 10px 2%;
   text-align: left;
   /*set to 70% for smaller viewports*/
   width: 100%;

@@ -143,17 +143,17 @@ nav h1 a {
   padding: 30px 2%;
   text-align: center;
   /*add flex to list*/
-  display: flex;
+  /*display: flex;*/
   /*put in a column*/
-  flex-direction: column;
+  /*flex-direction: column;*/
 }
 #restaurants-list li {
   background-color: #fff;
   border: 2px solid #ccc;
   font-family: Arial,sans-serif;
-  margin: 15px;
+  margin: 15px 0;
   min-height: 380px;
-  padding: 0 2% 10px 2%;
+  padding: 0 4% 10px 4%;
   text-align: left;
   /*set to 70% for smaller viewports*/
   width: 100%;
@@ -165,7 +165,7 @@ nav h1 a {
   display: block;
   margin: 0;
   max-width: 100%;
-  min-height: 248px;
+  /*min-height: 248px;*/
   min-width: 100%;
 }
 #restaurants-list li h1 {
@@ -319,5 +319,12 @@ nav h1 a {
     padding-left: 0;
     padding-right: 0;
     text-align: center;
+  }
+}
+
+/*Media Queries 480px*/
+@media screen and (min-width: 480px) {
+  #neighborhoods-select {
+    margin: 0 20px 10px 0;
   }
 }

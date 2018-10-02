@@ -193,7 +193,7 @@ createRestaurantHTML = (restaurant) => {
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
   // tab index for accessibility
-  more.tabindex = '3';
+  more.tabindex = '0';
   li.append(more)
 
   return li

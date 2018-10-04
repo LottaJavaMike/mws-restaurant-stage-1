@@ -5,16 +5,11 @@ var newMap
 var markers = []
 
 // Registering the serviceworker
-if('serviceworker' in navigator){
-  navigator.serviceworker
-  .register('js/serviceworker.js', {
-    scope: './'
-  })
-  .then(function() {
-    console.log('registered serviceworker');
-  })
-  .catch(function() {
-    console.log('failed to register serviceworker');
+if('serviceWorker' in navigator){
+  navigator.serviceWorker
+  .register('/serviceworker.js')
+  .catch(function(err) {
+    console.log('err');
   });
 }
 /**
@@ -91,7 +86,7 @@ initMap = () => {
         scrollWheelZoom: false
       });
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-    mapboxToken: '',
+    mapboxToken: 'pk.eyJ1IjoiZW10c2hlYSIsImEiOiJjam02YXozNGUwYnAzM3N1bnFud2JyMTNxIn0.Qz_a-kN2s83EDG-oHLLT6Q',
     maxZoom: 18,
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
       '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +

@@ -65,7 +65,37 @@ self.addEventListener('activate', e => {
 //fetch event
 self.addEventListener('fetch', e => {
 	console.log('service worker fetching');
+	let cacheRequest = e.request;
+	let cacheUrlObj = new URL(e.request.url);
+	if (e.request.url.indexOf('restaurant.html')> -1) {
+		const cacheURL = 'restaurant.html';
+		cacheRequest = new Request(cacheURL);
+	}
+	if (cacheUrlObj.hostname !== 'localhost') {
+		e.request.mode = 'no-cors';
+	}
+
 	e.respondWith(
-		fetch(e.request).catch(() => caches.match(e.request))
-	)
-})
+		caches.match(cacheRequest).then(response => {
+			return (
+				response ||
+				fetch(e.request)
+					.then(fetchResponse => {
+						return caches.open(cacheName).then(cache => {
+							cache.put(e.request, fetchResponse.clone());
+							return fetchResponse;
+						});
+					})
+					.catch(error => {
+						if (e.request.url.indexOf('.jpg') > -1) {
+							return caches.match('/img/na.png');
+						}
+						return new Response('Application is not connected to the Internet', {
+							status: 404,
+							statusText: "Application is not connected to the Internet"
+						});
+					})
+			);
+		})
+	);
+});
